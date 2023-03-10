@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <title>Animation</title>
     <style>
       * {
         margin: 0;
@@ -12,8 +13,7 @@
         box-sizing: border-box;
       }
 
-      .container {
-        width: 100%;
+      body {
         height: 80vh;
         background-image: url("d-wallpaper-bg.jpg");
         position: relative;
@@ -22,38 +22,15 @@
 
       .fog {
         height: 300px;
-        width: 500%;
+        width: 300%;
         display: block;
         background-image: url("fog.png");
-        top: 0;
-        left: 0;
-        right: 0;
-        background-repeat: repeat-x;
         animation: fog 8s linear infinite;
       }
 
       @keyframes fog {
         100% {
           transform: translateX(-300px);
-        }
-      }
-
-      .blue-car {
-        left: 75%;
-        position: absolute;
-        bottom: 210px;
-      }
-
-      .blue-car img {
-        width: 100%;
-        height: 150px;
-        animation: bluecar 5s linear infinite;
-        -webkit-animation-iteration-count: 1;
-      }
-
-      @keyframes bluecar {
-        100% {
-          transform: translatex(-1500px);
         }
       }
 
@@ -64,11 +41,13 @@
         z-index: 3;
       }
 
-      .red-car img {
-        width: 100%;
+      .red-car-img {
+        animation: car 5s linear normal;
+      }
+
+      .red-car-img,
+      .blue-car-img {
         height: 150px;
-        animation: car 5s linear infinite;
-        -webkit-animation-iteration-count: 1;
       }
 
       @keyframes car {
@@ -77,62 +56,67 @@
         }
       }
 
-      .wheel {
-        left: 50px;
-        position: absolute;
-        bottom: 200px;
+      .red-car-wheels-img {
         z-index: 3;
+        animation: redwheel 5s linear normal;
       }
 
-      .wheel img {
+      .red-car-wheels-img,
+      .blue-car-wheels-img {
         width: 40px;
         height: 40px;
-        animation: wheel 5s linear infinite;
-        -webkit-animation-iteration-count: 1;
       }
 
-      .back-wheel {
-        left: 40px;
-        bottom: 5px;
+      .back-wheel-red,
+      .front-wheel-red {
+        bottom: 16px;
         position: absolute;
       }
 
-      .front-wheel {
+      .back-wheel-red,
+      .front-wheel-blue {
+        left: 41px;
+      }
+
+      .front-wheel-red {
         left: 238px;
-        bottom: 5px;
-        position: absolute;
       }
 
-      @keyframes wheel {
+      @keyframes redwheel {
         100% {
           transform: translatex(1500px) rotate(360deg);
         }
       }
 
-      .right-car-wheel {
-        left: 75%;
+      .blue-car {
+        right: 90px;
         position: absolute;
-        bottom: 200px;
-        z-index: 2;
+        bottom: 210px;
       }
 
-      .right-car-wheel img {
-        width: 40px;
-        height: 40px;
-        animation: bluewheel 5s linear infinite;
-        -webkit-animation-iteration-count: 1;
+      .blue-car-img {
+        animation: bluecar 5s linear normal;
+      }
+
+      @keyframes bluecar {
+        100% {
+          transform: translatex(-1500px);
+        }
+      }
+
+      .blue-car-wheels-img {
+        z-index: 2;
+        animation: bluewheel 5s linear normal;
+      }
+
+      .back-wheel-blue,
+      .front-wheel-blue {
+        bottom: 10px;
+        position: absolute;
       }
 
       .back-wheel-blue {
-        left: 39px;
-        bottom: 20px;
-        position: absolute;
-      }
-
-      .front-wheel-blue {
-        left: 220px;
-        bottom: 20px;
-        position: absolute;
+        left: 222px;
       }
 
       @keyframes bluewheel {
@@ -151,18 +135,17 @@
       .middle-car img {
         width: 150px;
         height: 150px;
-        animation: cssAnimation 3s 2s forwards;
+        animation: middlecar 3s 2s forwards;
         opacity: 0;
-        -webkit-animation-iteration-count: 1;
       }
 
-      @keyframes cssAnimation {
+      @keyframes middlecar {
         to {
           opacity: 1;
         }
 
         100% {
-          transform: translatey(100px) scale(1.5, 1.5);
+          transform: translateY(100px) scale(1.5);
         }
       }
 
@@ -178,50 +161,56 @@
         height: 65px;
         animation: moveup 2s 2s linear normal;
         opacity: 0;
-        -webkit-animation-iteration-count: 1;
         animation-fill-mode: forwards;
       }
 
       @keyframes moveup {
-        100% {
-          transform: translatey(-120px) scale(2, 2);
-        }
-
         to {
           opacity: 1;
+        }
+        100% {
+          transform: translateY(-120px) scale(2, 2);
         }
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <div class="fog"></div>
+    <div class="fog"></div>
 
-      <div class="red-car">
-        <img src="mghector.png" alt="red-car" />
-      </div>
+    <div class="red-car">
+      <img src="mghector.png" alt="Red car" class="red-car-img" />
+      <img
+        src="hector-wheel.png"
+        alt="Hector wheel"
+        class="red-car-wheels-img back-wheel-red"
+      />
+      <img
+        src="hector-wheel.png"
+        alt="Hector wheel"
+        class="red-car-wheels-img front-wheel-red"
+      />
+    </div>
 
-      <div class="wheel">
-        <img src="hector-wheel.png" alt="hector-wheel" class="back-wheel" />
-        <img src="hector-wheel.png" alt="hector-wheel" class="front-wheel" />
-      </div>
+    <div class="blue-car">
+      <img src="mgzs.png" alt="Blue car" class="blue-car-img" />
+      <img
+        src="mgzswheel.png"
+        alt="MGZ Wheel"
+        class="blue-car-wheels-img front-wheel-blue"
+      />
+      <img
+        src="mgzswheel.png"
+        alt="MGZ Wheel"
+        class="blue-car-wheels-img back-wheel-blue"
+      />
+    </div>
 
-      <div class="blue-car">
-        <img src="mgzs.png" alt="blue-car" />
-      </div>
+    <div class="middle-car">
+      <img src="gloster-front-view.png" alt="Gloster front view" />
+    </div>
 
-      <div class="right-car-wheel">
-        <img src="mgzswheel.png" alt="hector-wheel" class="back-wheel-blue" />
-        <img src="mgzswheel.png" alt="hector-wheel" class="front-wheel-blue" />
-      </div>
-
-      <div class="middle-car">
-        <img src="gloster-front-view.png" alt="gloster-front-view" />
-      </div>
-
-      <div class="now-introducing-gloster">
-        <img src="now-introducing-gloster.png" alt="now-introducing-goster" />
-      </div>
+    <div class="now-introducing-gloster">
+      <img src="now-introducing-gloster.png" alt="Now introducing goster" />
     </div>
   </body>
 </html>
