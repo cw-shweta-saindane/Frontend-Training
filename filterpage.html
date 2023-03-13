@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter selection</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .open-filter-page-wrapper{
+        display: flex;
+        flex-direction: column;
+        /* background-color: rgb(245, 245, 245); */
+        padding: 10px;
+      }
+
+      .open-filter-button {
+        width: 120px;
+      }
+
+      .open-filter-button,
+      .apply-filters-button {
+        background-color: rgb(234, 37, 37);
+        border-radius: 5px;
+        border: none;
+        font-size: 15px;
+        font-weight: 600;
+        color: white;
+        padding: 12px;
+        margin-top: 10px;
+      }
+
+      .selected-filters {
+        margin-top: 15px;
+        font-size: 20px;
+        font-weight: 600;
+        color: #242323;
+      }
+
+      .selection-status,.body-selection-status{
+        margin-top: 10px;
+        font-size: 20px;
+        font-weight: 300;
+        color: #5d5a5a;
+      }
+
+      .cross-symbol-top {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        border: none;
+        align-items: center;
+        box-shadow: 0 2px 2px 0 rgba(138, 138, 138, 0.2),
+          0 6px 20px 0 rgba(170, 169, 169, 0.19);
+      }
+
+      .cross-symbol-img {
+        height: 20px;
+        width: 20px;
+      }
+
+      .filter-image-headline-wrappper {
+        display: flex;
+        padding-left: 10px;
+      }
+
+      .filter-headline {
+        font-size: 24px;
+        font-weight: 800;
+        color: #3c3b3b;
+        padding-left: 15px;
+        padding-top: 5px;
+      }
+
+      .make-car-list,
+      .body-wrapper {
+        border: 1px solid rgb(224, 222, 222);
+        border-radius: 5px;
+        margin: 10px;
+      }
+
+      .make-car-list,
+      .selection-wrapper,
+      .body-wrapper {
+        padding: 10px;
+      }
+
+      .make-second-list{
+       padding-left: 20px;
+      }
+
+      .body-second-list{
+        padding-left: 53px;
+      }
+
+      .checkbox-wrapper {
+        padding: 5px;
+        list-style: none;
+        font-family: arial;
+      }
+
+      .make-heading,
+      .body-heading {
+        font-size: 20px;
+        font-weight: 500;
+        color: #302a2a;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .apply-filters-button {
+        width: calc(100% - 20px);
+        position: absolute;
+        right: 10px;
+        left: 10px;
+        bottom: 5px;
+      }
+
+      .make-and-arrow-wrapper,
+      .body-and-arrow-wrapper {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .arrow,
+      .body-arrow {
+        padding: 10px 0;
+        height: 20px;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      .make-list-wrapper,.body-list-wrapper {
+        transition: height 300ms;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .collapse {
+        height: 0;
+        overflow: hidden;
+      }
+
+      .downward {
+        transform: rotate(180deg);
+      }
+
+      .selected-result {
+        color: rgb(3, 177, 159);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="open-filter-page-wrapper">
+      <h2 class="filters">Filters</h2>
+      <button class="open-filter-button">Open Filter</button>
+
+      <div class="selected-filters">Selected Filters:</div>
+
+      <div class="selection-status">No filters selected!</div>
+      <div class="body-selection-status"></div>
+    </div>
+
+    <div class="selection-wrapper hide">
+      <div class="filter-image-headline-wrappper">
+        <button class="cross-symbol-top">
+          <img
+            src="icons8-close-32.png"
+            alt="cross symbol"
+            class="cross-symbol-img"
+          />
+        </button>
+        <div class="filter-headline">Filters</div>
+      </div>
+
+      <div class="make-car-list">
+        <div class="make-and-arrow-wrapper">
+          <h2 class="make-heading">Make</h2>
+          <img
+            src="icons8-more-than-48.png"
+            alt="Upwards arrow"
+            class="arrow"
+          />
+        </div>
+
+        <div class="make-list-wrapper collapse">
+          <div>
+            <ul>
+              <li class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  name="Maruti Suzuki"
+                  value="Maruti Suzuki"
+                  id="Maruti Suzuki"
+                />
+                <label for="Maruti Suzuki">Maruti Suzuki</label>
+              </li>
+              <li class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  name="Mahindra"
+                  value="Mahindra"
+                  id="Mahindra"
+                />
+                <label for="Mahindra">Mahindra</label>
+              </li>
+              <li class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  name="Toyota"
+                  value="Toyota"
+                  id="Toyota"
+                />
+                <label for="Toyota">Toyota</label>
+              </li>
+              <li class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  name="Mercedes-Benz"
+                  value="Mercedes-Benz"
+                  id="Mercedes-Benz"
+                />
+                <label for="Mercedes-Benz">Mercedes-Benz</label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="make-second-list">
+            <ul>
+              <li class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  name="Hyundia"
+                  value="Hyundia"
+                  id="Hyundia"
+                />
+                <label for="Hyundia">Hyundia</label>
+              </li>
+              <li class="checkbox-wrapper">
+                <input type="checkbox" name="Tata" value="Tata" id="Tata" />
+                <label for="Tata">Tata</label>
+              </li>
+              <li class="checkbox-wrapper">
+                <input type="checkbox" name="Kia" value="Kia" id="Kia" />
+                <label for="Kia">Kia</label>
+              </li>
+              <li class="checkbox-wrapper">
+                <input type="checkbox" name="Honda" value="Honda" id="Honda" />
+                <label for="Honda">Honda</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="body-wrapper">
+        <div class="body-and-arrow-wrapper">
+          <h2 class="body-heading">Body Type</h2>
+          <img
+            src="icons8-more-than-48.png"
+            alt="Upwards arrow"
+            class="body-arrow"
+          />
+        </div>
+
+        <div class="body-list-wrapper collapse">
+          <div  class="body-first-list">
+            <ul>
+              <li class="checkbox-wrapper">
+                <input type="checkbox" name="SUV" value="SUV" id="SUV" />
+                <label for="SUV">SUV</label>
+              </li>
+              <li class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  name="Hatchback"
+                  value="Hatchback"
+                  id="Hatchback"
+                />
+                <label for="Hatchback">Hatchback</label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="body-second-list">
+            <ul>
+              <li class="checkbox-wrapper">
+                <input type="checkbox" name="Sedan" value="Sedan" id="Sedan" />
+                <label for="Sedan">Sedan</label>
+              </li>
+              <li class="checkbox-wrapper">
+                <input
+                  type="checkbox"
+                  name="Compact SUV"
+                  value="Compact SUV"
+                  id="Compact SUV"
+                />
+                <label for="Compact SUV">Compact SUV</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <button class="apply-filters-button">Apply Filters</button>
+    </div>
+
+    <script>
+      let selectedMakeFilter = [];
+      let selectedBodyFilter = [];
+      let data = document.querySelector(".open-filter-button");
+      let selection = document.querySelector(".selection-wrapper");
+
+      //onclick of the open filter button the firstpage hides and the next filter selection page opens
+      let openFirstPageWrapper = document.querySelector(".open-filter-page-wrapper");
+      data.addEventListener("click", function () {
+        selection.classList.remove("hide");
+        openFirstPageWrapper.classList.add("hide");
+      });
+
+      //onclick of the cross symbol the first page opens and the filter selection page close
+      let crossbutton = document.querySelector(".cross-symbol-top");
+      crossbutton.addEventListener("click", function () {
+        selection.classList.add("hide");
+        openFirstPageWrapper.classList.remove("hide");
+      });
+
+      //onclick of the arrow the Make list open and collapse
+      let upwardarrow = document.querySelector(".arrow");
+      let  makeListWrapper= document.querySelector(".make-list-wrapper");
+      upwardarrow.addEventListener("click", function (e) {
+        makeListWrapper.classList.toggle("collapse");
+        e.target.classList.toggle("downward");
+      });
+  
+      //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array 
+      //if we unselected the checkbox using splice the selected index is removed
+      makeListWrapper.addEventListener("change", function (event) {
+        if (event.target.matches('input[type="checkbox"]')) {
+          const checkbox = event.target;
+          if (checkbox.checked) {
+            selectedMakeFilter.push(checkbox.value);
+          } else {
+            const index = selectedMakeFilter.indexOf(checkbox.value);
+            if (index > -1) {
+              selectedMakeFilter.splice(index, 1);
+            }
+          }
+        }
+      });
+
+      //onclick of the apply filter the selection page hides and first page open and in result on first page we can see the selected status
+      let applyfilter = document.querySelector(".apply-filters-button");
+      let result = document.querySelector(".selection-status");
+      applyfilter.addEventListener("click", function () {
+        selection.classList.add("hide");
+        openFirstPageWrapper.classList.remove("hide");
+        result.innerHTML =
+          selectedMakeFilter.length > 0
+            ? `<div>Make: <span class="selected-result">${selectedMakeFilter.join(
+                ", "
+              )} </span></div>`
+            : "Make: No selected filters";
+      });
+
+       //onclick of the arrow the Body list open and collapse
+      let bodyTypeArrow = document.querySelector(".body-arrow");
+      let bodyListWrapper = document.querySelector(".body-list-wrapper");
+      bodyTypeArrow.addEventListener("click", function (e) {
+        bodyListWrapper.classList.toggle("collapse");
+        e.target.classList.toggle("downward");
+      });
+
+      //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array 
+      //if we unselected using splice the selected index is removed
+      bodyListWrapper.addEventListener("change", function (event) {
+        if (event.target.matches('input[type="checkbox"]')) {
+          const checkbox = event.target;
+          if (checkbox.checked) {
+            selectedBodyFilter.push(checkbox.value);
+          } else {
+            const index = selectedBodyFilter.indexOf(checkbox.value);
+            if (index > -1) {
+              selectedBodyFilter.splice(index, 1);
+            }
+          }
+        }
+      });
+
+
+     //onclick of the apply filter the selection page hides and first page open and in BodyTypeResult on first page we can see the selected status
+      let BodyTypeResult = document.querySelector(".body-selection-status");
+      applyfilter.addEventListener("click", function () {
+        selection.classList.add("hide");
+        openFirstPageWrapper.classList.remove("hide");
+        BodyTypeResult.innerHTML =
+          selectedBodyFilter.length > 0
+            ? `<div> Body Type: <span class="selected-result">${selectedBodyFilter.join(
+                ", "
+              )} </span></div>`
+            : "Body: No selected filters";
+      });
+    </script>
+  </body>
+</html>
