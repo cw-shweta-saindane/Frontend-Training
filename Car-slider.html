@@ -13,19 +13,19 @@
         outline: none;
       }
 
-      .car-info-wrapper {
+      .car__info__wrapper {
         display: inline-block;
         padding-left: 5px;
         padding-right: 5px;
       }
 
-      .car-info-card {
+      .card__image__content {
         background-color: rgb(248, 246, 246);
         border-radius: 5px;
         border: 1px solid rgb(202, 202, 202);
       }
 
-      .container {
+      .card__container {
         width: 63%;
         position: absolute;
         top: 50%;
@@ -34,50 +34,48 @@
         border-radius: 5px;
       }
 
-      .content {
+      .car__information {
         padding: 16px 12px 20px;
       }
 
-      .car-info {
-        display: flex;
-      }
-
-      .car-name {
+      .car__name {
         font-size: 16px;
         color: #484848;
         font-weight: 400;
       }
 
-      .car-price {
+      .car__price {
         font-size: 16px;
         margin-top: 8px;
         font-weight: 700;
         color: #484848;
       }
 
-      .car-avg-price {
+      .car__avg__price {
         font-size: 13px;
         margin-top: 8px;
         color: #6f6f6f;
       }
 
-      .car-city-price {
-        margin-top: 12px;
+      .car__city__price {
+        margin-top: 8px;
       }
 
-      .car-city-price-link {
+      .citywise__price {
         color: #0288d1;
         text-decoration: none;
       }
 
-      .onwards-text {
+      .onwards__text {
         font-size: 13px;
         font-weight: 400;
         color: #aaa;
+        padding-top: 2px;
+        padding-left: 3px;
       }
 
-      .previous-box,
-      .next-box {
+      .previous__card__slider,
+      .next__card__slider {
         height: 32px;
         width: 32px;
         background-color: #d7d7d7;
@@ -90,22 +88,22 @@
         align-items: center;
       }
 
-      .next-box {
+      .next__card__slider {
         right: 0;
       }
 
-      .arrow-previous {
+      .previous__arrow {
         transform: rotate(180deg);
       }
 
-      .arrow-previous,
-      .arrow-next {
+      .previous__arrow,
+      .next__arrow {
         width: 16px;
         height: 16px;
         color: #484848;
       }
 
-      .car-slider {
+      .car__slider__wrapper {
         display: flex;
         overflow-x: scroll;
       }
@@ -125,10 +123,10 @@
     </style>
   </head>
   <body>
-    <div class="container">
-      <a class="previous-box" href="#box1">
+    <div class="card__container">
+      <a class="previous__card__slider" href="#box1">
         <svg
-          class="arrow-previous"
+          class="previous__arrow"
           viewBox="0 0 16 16"
           fill="currentcolor"
           tabindex="-1"
@@ -142,123 +140,87 @@
         </svg>
       </a>
 
-      <div class="car-slider">
-        <div class="car-info-wrapper" id="box1">
-          <div class="car-info-card">
+      <div class="car__slider__wrapper">
+        <div class="car__info__wrapper" id="box1">
+          <div class="card__image__content">
             <img
               src="https://imgd.aeplcdn.com/310x174/n/cw/ec/40087/thar-exterior-right-front-three-quarter-11.jpeg?q=75"
-              alt="cars-image"
+              alt="Mahindra Thar"
             />
-            <div class="content">
-              <div class="table-info">
-                <div class="car-info car-name">
-                  Mahindra Thar
-                </div>
-                <div class="car-info car-price">
-                  ₹ 9.9 Lakh <span class="onwards-text">onwards</span>
-                </div>
-                <div class="car-info car-avg-price">
-                  Avg Ex showroom price
-                </div>
-                <div class="car-info car-city-price">
-                
-                    <a href="#" class="car-city-price-link"
-                      >Show price in my city</a
-                    >
-                </div>
-              </div>
+            <div class="car__information">
+              <p class="car__name">Mahindra Thar</p>
+              <p class="car__price">
+                ₹ 9.9 Lakh <span class="onwards__text">onwards</span>
+              </p>
+              <p class="car__avg__price">Avg Ex showroom price</p>
+              <p class="car__city__price">
+                <a href="#" class="citywise__price">Show price in my city</a>
+              </p>
             </div>
           </div>
         </div>
 
-        <div class="car-info-wrapper">
-          <div class="car-info-card">
+        <div class="car__info__wrapper">
+          <div class="card__image__content">
             <img
               src="https://imgd.aeplcdn.com/310x174/n/cw/ec/128413/scorpio-classic-exterior-right-front-three-quarter.jpeg?isig=0&q=75"
               alt="cars-image"
             />
-            <div class="content">
-                <div class="table-info">
-                  <div class="car-info car-name">
-                    Mahindra Scorpio
-                  </div>
-                  <div class="car-info car-price">
-                    ₹ 12.64 Lakh <span class="onwards-text">onwards</span>
-                  </div>
-                  <div class="car-info car-avg-price">
-                    Avg Ex showroom price
-                  </div>
-                  <div class="car-info car-city-price">
-                  
-                      <a href="#" class="car-city-price-link"
-                        >Show price in my city</a
-                      >
-                  </div>
-                </div>
-              </div>
+            <div class="car__information">
+              <p class="car__name">Mahindra Scorpio</p>
+              <p class="car__price">
+                ₹ 12.64 Lakh <span class="onwards__text">onwards</span>
+              </p>
+              <p class="car__avg__price">Avg Ex showroom price</p>
+              <p class="car__city__price">
+                <a href="#" class="citywise__price">Show price in my city</a>
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="car-info-wrapper">
-          <div class="car-info-card">
+        <div class="car__info__wrapper">
+          <div class="card__image__content">
             <img
               src="https://imgd.aeplcdn.com/310x174/n/cw/ec/107543/vitara-brezza-2022-exterior-right-front-three-quarter.jpeg?isig=0&q=75"
               alt="cars-image"
             />
-            <div class="content">
-                <div class="table-info">
-                  <div class="car-info car-name">
-                    Maruti Brezza
-                  </div>
-                  <div class="car-info car-price">
-                    ₹ 8.18 Lakh <span class="onwards-text">onwards</span>
-                  </div>
-                  <div class="car-info car-avg-price">
-                    Avg Ex showroom price
-                  </div>
-                  <div class="car-info car-city-price">
-                  
-                      <a href="#" class="car-city-price-link"
-                        >Show price in my city</a
-                      >
-                  </div>
-                </div>
-              </div>
+            <div class="car__information">
+              <p class="car__name">Maruti Brezza</p>
+              <p class="car__price">
+                ₹ 8.18 Lakh <span class="onwards__text">onwards</span>
+              </p>
+              <p class="car__avg__price">Avg Ex showroom price</p>
+              <p class="car__city__price">
+                <a href="#" class="citywise__price">Show price in my city</a>
+              </p>
+            </div>
           </div>
         </div>
 
-        <div class="car-info-wrapper" id="box4">
-          <div class="car-info-card">
+        <div class="car__info__wrapper" id="box4">
+          <div class="card__image__content">
             <img
               src="https://imgd.aeplcdn.com/310x174/n/cw/ec/134287/2023-city-exterior-right-front-three-quarter.jpeg?isig=0&q=75"
               alt="cars-image"
             />
-            <div class="content">
-                <div class="table-info">
-                  <div class="car-info car-name">
-                    Honda New City
-                  </div>
-                  <div class="car-info car-price">
-                    ₹ 11.52 Lakh<span class="onwards-text">onwards</span>
-                  </div>
-                  <div class="car-info car-avg-price">
-                    Avg Ex showroom price
-                  </div>
-                  <div class="car-info car-city-price">
-                  
-                      <a href="#" class="car-city-price-link"
-                        >Show price in my city</a
-                      >
-                  </div>
-                </div>
-              </div>
+            <div class="car__information">
+              <p class="car__name">Honda New City</p>
+              <p class="car__price">
+                ₹ 11.52 Lakh<span class="onwards__text">onwards</span>
+              </p>
+              <p class="car__avg__price">Avg Ex showroom price</p>
+              <p class="car__city__price">
+                <a href="#" class="citywise__price">Show price in my city</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
 
-      <a class="next-box" href="#box4">
+      <a class="next__card__slider" href="#box4">
         <svg
-          class="arrow-next"
+          class="next__arrow"
           viewBox="0 0 16 16"
           fill="currentcolor"
           tabindex="-1"
