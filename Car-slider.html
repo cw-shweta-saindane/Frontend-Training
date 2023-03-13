@@ -21,7 +21,7 @@
         margin:3px;
       }
 
-      .card__carousel {
+      .card-carousel__carousel {
         width: 62%;
         position: absolute;
         top: 50%;
@@ -75,10 +75,12 @@
         position: absolute;
         z-index: 1;
         top: 50%;
+        transform:translateY(-50%);
         border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
+
       }
 
       .next__card__slider {
@@ -116,16 +118,10 @@
     </style>
   </head>
   <body>
-    <div class="card__carousel">
+    <div class="card-carousel__carousel">
       <a class="previous__card__slider" href="#box1">
         <svg
           class="previous__arrow"
-          viewBox="0 0 16 16"
-          fill="currentcolor"
-          tabindex="-1"
-          focusable="false"
-          aria-hidden="true"
-          role="img"
         >
           <path
             d="M4.59 15.8a1 1 0 01-.69-.29 1 1 0 010-1.37L10 8 3.9 1.86a1 1 0 010-1.37 1 1 0 011.38 0l6.82 6.82a1 1 0 010 1.38l-6.82 6.82a1 1 0 01-.69.29z"
@@ -203,12 +199,6 @@
       <a class="next__card__slider" href="#box4">
         <svg
           class="next__arrow"
-          viewBox="0 0 16 16"
-          fill="currentcolor"
-          tabindex="-1"
-          focusable="false"
-          aria-hidden="true"
-          role="img"
         >
           <path
             d="M4.59 15.8a1 1 0 01-.69-.29 1 1 0 010-1.37L10 8 3.9 1.86a1 1 0 010-1.37 1 1 0 011.38 0l6.82 6.82a1 1 0 010 1.38l-6.82 6.82a1 1 0 01-.69.29z"
