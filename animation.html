@@ -39,10 +39,8 @@
         position: absolute;
         bottom: 190px;
         z-index: 3;
-      }
-
-      .red-car-img {
         animation: car 5s linear normal;
+        animation-fill-mode: forwards
       }
 
       .red-car-img,
@@ -58,7 +56,8 @@
 
       .red-car-wheels-img {
         z-index: 3;
-        animation: redwheel 5s linear normal;
+        animation: redwheel 5s linear normal, redwheelrotation 1s linear normal infinite;
+          
       }
 
       .red-car-wheels-img,
@@ -82,21 +81,22 @@
         left: 238px;
       }
 
-      @keyframes redwheel {
+      @keyframes redwheelrotation  {
         100% {
-          transform: translatex(1500px) rotate(360deg);
+          transform: rotate(360deg);
         }
+        
       }
 
       .blue-car {
         right: 90px;
         position: absolute;
         bottom: 210px;
+        animation: bluecar 5s linear normal;
+        animation-fill-mode: forwards
       }
 
-      .blue-car-img {
-        animation: bluecar 5s linear normal;
-      }
+  
 
       @keyframes bluecar {
         100% {
@@ -106,7 +106,7 @@
 
       .blue-car-wheels-img {
         z-index: 2;
-        animation: bluewheel 5s linear normal;
+        animation: bluewheel 5s linear normal, bluewheelrotation 1s linear normal infinite;
       }
 
       .back-wheel-blue,
@@ -119,14 +119,16 @@
         left: 222px;
       }
 
-      @keyframes bluewheel {
+      @keyframes bluewheelrotation  {
         100% {
-          transform: translatex(-1500px) rotate(-360deg);
+          transform: rotate(-360deg);
         }
+        
       }
-
       .middle-car {
-        left: 45%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
         position: absolute;
         bottom: 190px;
         z-index: 3;
@@ -135,22 +137,25 @@
       .middle-car img {
         width: 150px;
         height: 150px;
-        animation: middlecar 3s 2s forwards;
+        animation: middlecar 3s 2.4s forwards;
         opacity: 0;
       }
 
       @keyframes middlecar {
-        to {
+        0% {
           opacity: 1;
         }
 
         100% {
           transform: translateY(100px) scale(1.5);
+          opacity: 1;
         }
       }
 
       .now-introducing-gloster {
-        left: 40%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
         position: absolute;
         top: 200px;
         z-index: 3;
@@ -159,17 +164,18 @@
       .now-introducing-gloster img {
         width: 285px;
         height: 65px;
-        animation: moveup 2s 2s linear normal;
+        animation: moveup 2s 2.4s linear normal;
         opacity: 0;
         animation-fill-mode: forwards;
       }
 
       @keyframes moveup {
-        to {
+       0%{
           opacity: 1;
         }
         100% {
-          transform: translateY(-120px) scale(2, 2);
+          transform: translateY(-80px) scale(1.5);
+          opacity: 1;
         }
       }
     </style>
