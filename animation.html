@@ -40,15 +40,17 @@
         bottom: 190px;
         z-index: 3;
         animation: redcar 5s linear normal;
-        animation-fill-mode: forwards;
         background-image: url("mghector.png");
+        animation-fill-mode: forwards;
+      }
+
+      .red-car,.blue-car{
         height: 150px;
         width: 315px;
         background-size: cover;
       }
 
-      .red-car::before {
-        background-image: url("hector-wheel.png");
+      .red-car::before,.red-car::after{
         display: inline-block;
         width: 45px;
         height: 45px;
@@ -57,19 +59,15 @@
         animation:wheelrotation 1s linear normal infinite;
         position: absolute;
         bottom: 10px;
+      }
+
+      .red-car::before {
+        background-image: url("hector-wheel.png");
         left: 37px;
       }
 
       .red-car::after {
         background-image: url("hector-wheel.png");
-        display: inline-block;
-        width: 45px;
-        height: 45px;
-        z-index: 3;
-        content: "";
-        animation:wheelrotation 1s linear normal infinite;
-        position: absolute;
-        bottom: 10px;
         right: 35px;
       }
 
@@ -90,37 +88,29 @@
         position: absolute;
         bottom: 210px;
         animation: bluecar 5s linear normal;
-        animation-fill-mode: forwards;
         background-image: url("mgzs.png");
-        height: 150px;
-        width: 315px;
-        background-size: cover;
+        animation-fill-mode: forwards;
+      }
+
+      .blue-car::before,.blue-car::after{
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        content: "";
+        z-index: 2;
+        animation:wheelrotation 1s linear reverse infinite;
+        position: absolute;
+        bottom: -5px;
       }
 
       .blue-car::before {
         background-image: url("mgzswheel.png");
-        display: inline-block;
-        width: 48px;
-        height: 48px;
-        content: "";
-        z-index: 2;
-        animation:wheelrotation 1s linear reverse infinite;
-        position: absolute;
         left: 41px;
-        bottom: -5px;
       }
 
       .blue-car::after {
         background-image: url("mgzswheel.png");
-        display: inline-block;
-        width: 48px;
-        height: 48px;
-        content: "";
-        z-index: 2;
-        animation:wheelrotation 1s linear reverse infinite;
-        position: absolute;
         left: 233px;
-        bottom: -5px;
       }
 
       @keyframes bluecar {
