@@ -12,7 +12,7 @@
         padding: 0;
       }
 
-      .open-filter-page-wrapper{
+      .open-filter-page-wrapper {
         display: flex;
         flex-direction: column;
         padding: 10px;
@@ -41,7 +41,8 @@
         color: #242323;
       }
 
-      .selection-status,.body-selection-status{
+      .selection-status,
+      .body-selection-status {
         margin-top: 10px;
         font-size: 20px;
         font-weight: 300;
@@ -81,7 +82,7 @@
 
       .make-car-list,
       .body-wrapper {
-        border: 1px solid #E0DEDE;
+        border: 1px solid #e0dede;
         border-radius: 5px;
         margin: 10px;
       }
@@ -91,7 +92,6 @@
       .body-wrapper {
         padding: 10px;
       }
-
 
       .checkbox-wrapper {
         padding: 5px;
@@ -133,7 +133,8 @@
         display: none;
       }
 
-      .make-list-wrapper,.body-list-wrapper {
+      .make-list-wrapper,
+      .body-list-wrapper {
         transition: height 300ms;
         display: flex;
         flex-wrap: wrap;
@@ -149,7 +150,7 @@
       }
 
       .selected-result {
-        color:#03B19F;
+        color: #03b19f;
       }
     </style>
   </head>
@@ -315,7 +316,9 @@
       let selection = document.querySelector(".selection-wrapper");
 
       //onclick of the open filter button the firstpage hides and the next filter selection page opens
-      let openFirstPageWrapper = document.querySelector(".open-filter-page-wrapper");
+      let openFirstPageWrapper = document.querySelector(
+        ".open-filter-page-wrapper"
+      );
       data.addEventListener("click", function () {
         selection.classList.remove("hide");
         openFirstPageWrapper.classList.add("hide");
@@ -330,13 +333,13 @@
 
       //onclick of the arrow the Make list open and collapse
       let upwardarrow = document.querySelector(".arrow");
-      let  makeListWrapper= document.querySelector(".make-list-wrapper");
+      let makeListWrapper = document.querySelector(".make-list-wrapper");
       upwardarrow.addEventListener("click", function (e) {
         makeListWrapper.classList.toggle("collapse");
         e.target.classList.toggle("downward");
       });
-  
-      //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array 
+
+      //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array
       //if we unselected the checkbox using splice the selected index is removed
       makeListWrapper.addEventListener("change", function (event) {
         if (event.target.matches('input[type="checkbox"]')) {
@@ -366,7 +369,7 @@
             : "Make: No selected filters";
       });
 
-       //onclick of the arrow the Body list open and collapse
+      //onclick of the arrow the Body list open and collapse
       let bodyTypeArrow = document.querySelector(".body-arrow");
       let bodyListWrapper = document.querySelector(".body-list-wrapper");
       bodyTypeArrow.addEventListener("click", function (e) {
@@ -374,7 +377,7 @@
         e.target.classList.toggle("downward");
       });
 
-      //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array 
+      //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array
       //if we unselected using splice the selected index is removed
       bodyListWrapper.addEventListener("change", function (event) {
         if (event.target.matches('input[type="checkbox"]')) {
@@ -390,8 +393,7 @@
         }
       });
 
-
-     //onclick of the apply filter the selection page hides and first page open and in BodyTypeResult on first page we can see the selected status
+      //onclick of the apply filter the selection page hides and first page open and in BodyTypeResult on first page we can see the selected status
       let BodyTypeResult = document.querySelector(".body-selection-status");
       applyfilter.addEventListener("click", function () {
         selection.classList.add("hide");
