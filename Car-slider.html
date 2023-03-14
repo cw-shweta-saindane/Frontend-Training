@@ -15,13 +15,13 @@
 
       .card {
         display: inline-block;
-        background-color: rgb(248, 246, 246);
+        background-color:#F6F6F8;
         border-radius: 5px;
-        border: 1px solid rgb(202, 202, 202);
+        border: 1px solid #CCCCCC;
         margin:3px;
       }
 
-      .card-carousel__carousel {
+      .card-carousel {
         width: 62%;
         position: absolute;
         top: 50%;
@@ -67,8 +67,8 @@
         padding-left: 3px;
       }
 
-      .previous__card__slider,
-      .next__card__slider {
+      .card-carousel__previous-slider,
+      .card-carousel__next-slider {
         height: 32px;
         width: 32px;
         background-color: #d7d7d7;
@@ -83,16 +83,16 @@
 
       }
 
-      .next__card__slider {
+      .card-carousel__next-slider {
         right: 0;
       }
 
-      .previous__arrow {
+      .card-carousel__previous-arrow {
         transform: rotate(180deg);
       }
 
-      .previous__arrow,
-      .next__arrow {
+      .card-carousel__previous-arrow,
+      .card-carousel__next-arrow {
         width: 16px;
         height: 16px;
         color: #484848;
@@ -118,10 +118,10 @@
     </style>
   </head>
   <body>
-    <div class="card-carousel__carousel">
-      <a class="previous__card__slider" href="#box1">
+    <div class="card-carousel">
+      <a class="card-carousel__previous-slider" href="#box1">
         <svg
-          class="previous__arrow"
+          class="card-carousel__previous-arrow"
         >
           <path
             d="M4.59 15.8a1 1 0 01-.69-.29 1 1 0 010-1.37L10 8 3.9 1.86a1 1 0 010-1.37 1 1 0 011.38 0l6.82 6.82a1 1 0 010 1.38l-6.82 6.82a1 1 0 01-.69.29z"
@@ -196,9 +196,9 @@
         </div>
       </div>
 
-      <a class="next__card__slider" href="#box4">
+      <a class="card-carousel__next-slider" href="#box4">
         <svg
-          class="next__arrow"
+          class="card-carousel__next-arrow"
         >
           <path
             d="M4.59 15.8a1 1 0 01-.69-.29 1 1 0 010-1.37L10 8 3.9 1.86a1 1 0 010-1.37 1 1 0 011.38 0l6.82 6.82a1 1 0 010 1.38l-6.82 6.82a1 1 0 01-.69.29z"
