@@ -312,29 +312,29 @@
     <script>
       let selectedMakeFilter = [];
       let selectedBodyFilter = [];
-      let data = document.querySelector(".open-filter__btn");
+      let openFilterButton = document.querySelector(".open-filter__btn");
       let selection = document.querySelector(".selection-wrapper");
 
       //onclick of the open filter button the firstpage hides and the next filter selection page opens
       let openFirstPageWrapper = document.querySelector(
         ".open-filter-page-wrapper"
       );
-      data.addEventListener("click", function () {
+      openFilterButton.addEventListener("click", function () {
         selection.classList.remove("hide");
         openFirstPageWrapper.classList.add("hide");
       });
 
       //onclick of the cross symbol the first page opens and the filter selection page close
-      let crossbutton = document.querySelector(".cross-symbol-top");
-      crossbutton.addEventListener("click", function () {
+      let crossButton = document.querySelector(".cross-symbol-top");
+      crossButton.addEventListener("click", function () {
         selection.classList.add("hide");
         openFirstPageWrapper.classList.remove("hide");
       });
 
       //onclick of the arrow the Make list open and collapse
-      let upwardarrow = document.querySelector(".arrow");
+      let upwardArrow = document.querySelector(".arrow");
       let makeListWrapper = document.querySelector(".make-list-wrapper");
-      upwardarrow.addEventListener("click", function (e) {
+      upwardArrow.addEventListener("click", function (e) {
         makeListWrapper.classList.toggle("collapse");
         e.target.classList.toggle("downward");
       });
@@ -356,9 +356,9 @@
       });
 
       //onclick of the apply filter the selection page hides and first page open and in result on first page we can see the selected status
-      let applyfilter = document.querySelector(".apply-filters__btn");
+      let applyFilter = document.querySelector(".apply-filters__btn");
       let result = document.querySelector(".selection-status");
-      applyfilter.addEventListener("click", function () {
+      applyFilter.addEventListener("click", function () {
         selection.classList.add("hide");
         openFirstPageWrapper.classList.remove("hide");
         result.innerHTML =
@@ -395,7 +395,7 @@
 
       //onclick of the apply filter the selection page hides and first page open and in BodyTypeResult on first page we can see the selected status
       let BodyTypeResult = document.querySelector(".body-selection-status");
-      applyfilter.addEventListener("click", function () {
+      applyFilter.addEventListener("click", function () {
         selection.classList.add("hide");
         openFirstPageWrapper.classList.remove("hide");
         BodyTypeResult.innerHTML =
