@@ -15,16 +15,15 @@
       .open-filter-page-wrapper{
         display: flex;
         flex-direction: column;
-        /* background-color: rgb(245, 245, 245); */
         padding: 10px;
       }
 
-      .open-filter-button {
+      .open-filter__btn {
         width: 120px;
       }
 
-      .open-filter-button,
-      .apply-filters-button {
+      .open-filter__btn,
+      .apply-filters__btn {
         background-color: rgb(234, 37, 37);
         border-radius: 5px;
         border: none;
@@ -82,7 +81,7 @@
 
       .make-car-list,
       .body-wrapper {
-        border: 1px solid rgb(224, 222, 222);
+        border: 1px solid #E0DEDE;
         border-radius: 5px;
         margin: 10px;
       }
@@ -93,13 +92,6 @@
         padding: 10px;
       }
 
-      .make-second-list{
-       padding-left: 20px;
-      }
-
-      .body-second-list{
-        padding-left: 53px;
-      }
 
       .checkbox-wrapper {
         padding: 5px;
@@ -117,7 +109,7 @@
         font-family: Arial, Helvetica, sans-serif;
       }
 
-      .apply-filters-button {
+      .apply-filters__btn {
         width: calc(100% - 20px);
         position: absolute;
         right: 10px;
@@ -157,14 +149,14 @@
       }
 
       .selected-result {
-        color: rgb(3, 177, 159);
+        color:#03B19F;
       }
     </style>
   </head>
   <body>
     <div class="open-filter-page-wrapper">
       <h2 class="filters">Filters</h2>
-      <button class="open-filter-button">Open Filter</button>
+      <button class="open-filter__btn">Open Filter</button>
 
       <div class="selected-filters">Selected Filters:</div>
 
@@ -236,7 +228,7 @@
             </ul>
           </div>
 
-          <div class="make-second-list">
+          <div>
             <ul>
               <li class="checkbox-wrapper">
                 <input
@@ -275,7 +267,7 @@
         </div>
 
         <div class="body-list-wrapper collapse">
-          <div  class="body-first-list">
+          <div>
             <ul>
               <li class="checkbox-wrapper">
                 <input type="checkbox" name="SUV" value="SUV" id="SUV" />
@@ -293,7 +285,7 @@
             </ul>
           </div>
 
-          <div class="body-second-list">
+          <div>
             <ul>
               <li class="checkbox-wrapper">
                 <input type="checkbox" name="Sedan" value="Sedan" id="Sedan" />
@@ -313,13 +305,13 @@
         </div>
       </div>
 
-      <button class="apply-filters-button">Apply Filters</button>
+      <button class="apply-filters__btn">Apply Filters</button>
     </div>
 
     <script>
       let selectedMakeFilter = [];
       let selectedBodyFilter = [];
-      let data = document.querySelector(".open-filter-button");
+      let data = document.querySelector(".open-filter__btn");
       let selection = document.querySelector(".selection-wrapper");
 
       //onclick of the open filter button the firstpage hides and the next filter selection page opens
@@ -361,7 +353,7 @@
       });
 
       //onclick of the apply filter the selection page hides and first page open and in result on first page we can see the selected status
-      let applyfilter = document.querySelector(".apply-filters-button");
+      let applyfilter = document.querySelector(".apply-filters__btn");
       let result = document.querySelector(".selection-status");
       applyfilter.addEventListener("click", function () {
         selection.classList.add("hide");
