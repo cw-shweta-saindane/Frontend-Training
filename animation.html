@@ -40,53 +40,52 @@
         position: absolute;
         bottom: 190px;
         z-index: 3;
-        animation: car 5s linear normal;
-        animation-fill-mode: forwards
-      }
-
-      .red-car-img,
-      .blue-car-img {
+        animation: redcar 5s linear normal;
+        animation-fill-mode: forwards;
+        background-image: url("mghector.png");
         height: 150px;
+        width: 315px;
+        background-size: cover;
       }
 
-      @keyframes car {
+      .red-car::before {
+        background-image: url("hector-wheel.png");
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        z-index: 3;
+        content: "";
+        animation: redwheel 5s linear normal,
+          redwheelrotation 1s linear normal infinite;
+        position: absolute;
+        bottom: 10px;
+        left: 37px;
+      }
+
+      .red-car::after {
+        background-image: url("hector-wheel.png");
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        z-index: 3;
+        content: "";
+        animation: redwheel 5s linear normal,
+          redwheelrotation 1s linear normal infinite;
+        position: absolute;
+        bottom: 10px;
+        right: 35px;
+      }
+
+      @keyframes redcar {
         100% {
           transform: translatex(1500px);
         }
       }
 
-      .red-car-wheels-img {
-        z-index: 3;
-        animation: redwheel 5s linear normal, redwheelrotation 1s linear normal infinite;
-          
-      }
-
-      .red-car-wheels-img,
-      .blue-car-wheels-img {
-        width: 40px;
-        height: 40px;
-      }
-
-      .back-wheel-red,
-      .front-wheel-red {
-        bottom: 16px;
-        position: absolute;
-      }
-
-      .back-wheel-red,
-      .front-wheel-blue {
-        left: 41px;
-      }
-
-      .front-wheel-red {
-        left: 238px;
-      }
-
-      @keyframes redwheelrotation  {
+      @keyframes redwheelrotation {
         100% {
           transform: rotate(360deg);
         }
-        
       }
 
       .blue-car {
@@ -94,10 +93,40 @@
         position: absolute;
         bottom: 210px;
         animation: bluecar 5s linear normal;
-        animation-fill-mode: forwards
+        animation-fill-mode: forwards;
+        background-image: url("mgzs.png");
+        height: 150px;
+        width: 315px;
+        background-size: cover;
       }
 
-  
+      .blue-car::before {
+        background-image: url("mgzswheel.png");
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        content: "";
+        z-index: 2;
+        animation: bluewheel 5s linear normal,
+          bluewheelrotation 1s linear normal infinite;
+        position: absolute;
+        left: 41px;
+        bottom: -5px;
+      }
+
+      .blue-car::after {
+        background-image: url("mgzswheel.png");
+        display: inline-block;
+        width: 48px;
+        height: 48px;
+        content: "";
+        z-index: 2;
+        animation: bluewheel 5s linear normal,
+        bluewheelrotation 1s linear normal infinite;
+        position: absolute;
+        left: 233px;
+        bottom: -5px;
+      }
 
       @keyframes bluecar {
         100% {
@@ -105,31 +134,16 @@
         }
       }
 
-      .blue-car-wheels-img {
-        z-index: 2;
-        animation: bluewheel 5s linear normal, bluewheelrotation 1s linear normal infinite;
-      }
 
-      .back-wheel-blue,
-      .front-wheel-blue {
-        bottom: 10px;
-        position: absolute;
-      }
-
-      .back-wheel-blue {
-        left: 222px;
-      }
-
-      @keyframes bluewheelrotation  {
+      @keyframes bluewheelrotation {
         100% {
           transform: rotate(-360deg);
         }
-        
       }
       .middle-car {
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         position: absolute;
         bottom: 190px;
         z-index: 3;
@@ -153,16 +167,16 @@
         }
       }
 
-      .now-introducing-gloster {
+      .introducing-title {
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         position: absolute;
         top: 200px;
         z-index: 3;
       }
 
-      .now-introducing-gloster img {
+      .introducing-title--image {
         width: 285px;
         height: 65px;
         animation: moveup 2s 2.4s linear normal;
@@ -171,7 +185,7 @@
       }
 
       @keyframes moveup {
-       0%{
+        0% {
           opacity: 1;
         }
         100% {
@@ -179,45 +193,24 @@
           opacity: 1;
         }
       }
+     
     </style>
   </head>
   <body>
     <div class="fog"></div>
 
     <div class="red-car">
-      <img src="mghector.png" alt="Red car" class="red-car-img" />
-      <img
-        src="hector-wheel.png"
-        alt="Hector wheel"
-        class="red-car-wheels-img back-wheel-red"
-      />
-      <img
-        src="hector-wheel.png"
-        alt="Hector wheel"
-        class="red-car-wheels-img front-wheel-red"
-      />
     </div>
 
     <div class="blue-car">
-      <img src="mgzs.png" alt="Blue car" class="blue-car-img" />
-      <img
-        src="mgzswheel.png"
-        alt="MGZ Wheel"
-        class="blue-car-wheels-img front-wheel-blue"
-      />
-      <img
-        src="mgzswheel.png"
-        alt="MGZ Wheel"
-        class="blue-car-wheels-img back-wheel-blue"
-      />
     </div>
 
     <div class="middle-car">
       <img src="gloster-front-view.png" alt="Gloster front view" />
     </div>
 
-    <div class="now-introducing-gloster">
-      <img src="now-introducing-gloster.png" alt="Now introducing goster" />
+    <div class="introducing-title">
+      <img src="now-introducing-gloster.png" alt="Now introducing goster" class="introducing-title--image"/>
     </div>
   </body>
 </html>
