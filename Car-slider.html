@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        outline: none;
+      }
+
+      .card {
+        display: inline-block;
+        background-color: #f6f6f8;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin: 3px;
+      }
+
+      .card-carousel {
+        width: 62%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 5px;
+      }
+
+      .card__information {
+        padding: 16px 12px 20px;
+      }
+
+      .card__name {
+        font-size: 16px;
+        color: #484848;
+        font-weight: 400;
+      }
+
+      .car__price {
+        font-size: 16px;
+        margin-top: 8px;
+        font-weight: 700;
+        color: #484848;
+      }
+
+      .card__avg-price {
+        font-size: 13px;
+        margin-top: 8px;
+        color: #6f6f6f;
+      }
+
+      .card__city-price-link {
+        color: #0288d1;
+        text-decoration: none;
+        margin-top: 8px;
+      }
+
+      .card__price-text {
+        font-size: 13px;
+        font-weight: 400;
+        color: #aaa;
+        padding-top: 2px;
+        padding-left: 3px;
+      }
+
+      .card-carousel__btn {
+        height: 32px;
+        width: 32px;
+        background-color: #d7d7d7;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .card-carousel__btn--next {
+        right: 0;
+      }
+
+      .card-carousel__arrow--previous {
+        transform: rotate(180deg);
+      }
+
+      .card-carousel__arrow {
+        width: 16px;
+        height: 16px;
+        color: #484848;
+      }
+
+      .card-carousel__wrapper {
+        display: flex;
+        overflow-x: scroll;
+      }
+
+      .card-carousel__wrapper::-webkit-scrollbar {
+        width: 4px;
+        height: 1px;
+      }
+      .card-carousel__wrapper::-webkit-scrollbar-thumb {
+        background-color: #c5c5c5;
+        border-radius: 12px;
+        border: 1px solid #f6f6f6;
+      }
+      .card-carousel__wrapper::-webkit-scrollbar-track {
+        background: #f6f6f6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card-carousel">
+      <a class="card-carousel__btn card-carousel__btn--previous" href="#box1">
+        <svg class="card-carousel__arrow card-carousel__arrow--previous">
+          <path
+            d="M4.59 15.8a1 1 0 01-.69-.29 1 1 0 010-1.37L10 8 3.9 1.86a1 1 0 010-1.37 1 1 0 011.38 0l6.82 6.82a1 1 0 010 1.38l-6.82 6.82a1 1 0 01-.69.29z"
+          ></path>
+        </svg>
+      </a>
+
+      <div class="card-carousel__wrapper">
+        <div class="card" id="box1">
+          <img
+            src="https://imgd.aeplcdn.com/310x174/n/cw/ec/40087/thar-exterior-right-front-three-quarter-11.jpeg?q=75"
+            alt="Mahindra Thar"
+            title="Mahindra Thar"
+          />
+          <div class="card__information">
+            <p class="card__name">Mahindra Thar</p>
+            <p class="car__price">
+              ₹ 9.9 Lakh <span class="card__price-text">onwards</span>
+            </p>
+            <p class="card__avg-price">Avg Ex showroom price</p>
+
+            <a href="#" class="card__city-price-link">Show price in my city</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://imgd.aeplcdn.com/310x174/n/cw/ec/128413/scorpio-classic-exterior-right-front-three-quarter.jpeg?isig=0&q=75"
+            alt="Mahindra Scorpio"
+            title="Mahindra Scorpio"
+          />
+          <div class="card__information">
+            <p class="card__name">Mahindra Scorpio</p>
+            <p class="car__price">
+              ₹ 12.64 Lakh <span class="card__price-text">onwards</span>
+            </p>
+            <p class="card__avg-price">Avg Ex showroom price</p>
+
+            <a href="#" class="card__city-price-link">Show price in my city</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img
+            src="https://imgd.aeplcdn.com/310x174/n/cw/ec/107543/vitara-brezza-2022-exterior-right-front-three-quarter.jpeg?isig=0&q=75"
+            alt="Maruti Brezza"
+            title="Maruti Brezza"
+          />
+          <div class="card__information">
+            <p class="card__name">Maruti Brezza</p>
+            <p class="car__price">
+              ₹ 8.18 Lakh <span class="card__price-text">onwards</span>
+            </p>
+            <p class="card__avg-price">Avg Ex showroom price</p>
+
+            <a href="#" class="card__city-price-link">Show price in my city</a>
+          </div>
+        </div>
+
+        <div class="card" id="box4">
+          <img
+            src="https://imgd.aeplcdn.com/310x174/n/cw/ec/134287/2023-city-exterior-right-front-three-quarter.jpeg?isig=0&q=75"
+            alt="Honda New City"
+            title="Honda New City"
+          />
+          <div class="card__information">
+            <p class="card__name">Honda New City</p>
+            <p class="car__price">
+              ₹ 11.52 Lakh<span class="card__price-text">onwards</span>
+            </p>
+            <p class="card__avg-price">Avg Ex showroom price</p>
+
+            <a href="#" class="card__city-price-link">Show price in my city</a>
+          </div>
+        </div>
+      </div>
+
+      <a class="card-carousel__btn card-carousel__btn--next" href="#box4">
+        <svg class="card-carousel__arrow card-carousel__arrow--next">
+          <path
+            d="M4.59 15.8a1 1 0 01-.69-.29 1 1 0 010-1.37L10 8 3.9 1.86a1 1 0 010-1.37 1 1 0 011.38 0l6.82 6.82a1 1 0 010 1.38l-6.82 6.82a1 1 0 01-.69.29z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </body>
+</html>
