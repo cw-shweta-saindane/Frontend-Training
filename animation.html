@@ -54,8 +54,7 @@
         height: 45px;
         z-index: 3;
         content: "";
-        animation: redwheel 5s linear normal,
-          redwheelrotation 1s linear normal infinite;
+        animation:wheelrotation 1s linear normal infinite;
         position: absolute;
         bottom: 10px;
         left: 37px;
@@ -68,8 +67,7 @@
         height: 45px;
         z-index: 3;
         content: "";
-        animation: redwheel 5s linear normal,
-          redwheelrotation 1s linear normal infinite;
+        animation:wheelrotation 1s linear normal infinite;
         position: absolute;
         bottom: 10px;
         right: 35px;
@@ -77,11 +75,11 @@
 
       @keyframes redcar {
         100% {
-          transform: translatex(1500px);
+          transform: translateX(1500px);
         }
       }
 
-      @keyframes redwheelrotation {
+      @keyframes wheelrotation {
         100% {
           transform: rotate(360deg);
         }
@@ -106,8 +104,7 @@
         height: 48px;
         content: "";
         z-index: 2;
-        animation: bluewheel 5s linear normal,
-          bluewheelrotation 1s linear normal infinite;
+        animation:wheelrotation 1s linear reverse infinite;
         position: absolute;
         left: 41px;
         bottom: -5px;
@@ -120,8 +117,7 @@
         height: 48px;
         content: "";
         z-index: 2;
-        animation: bluewheel 5s linear normal,
-          bluewheelrotation 1s linear normal infinite;
+        animation:wheelrotation 1s linear reverse infinite;
         position: absolute;
         left: 233px;
         bottom: -5px;
@@ -129,13 +125,7 @@
 
       @keyframes bluecar {
         100% {
-          transform: translatex(-1500px);
-        }
-      }
-
-      @keyframes bluewheelrotation {
-        100% {
-          transform: rotate(-360deg);
+          transform: translateX(-1500px);
         }
       }
       .middle-car {
