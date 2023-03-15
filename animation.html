@@ -28,12 +28,6 @@
         animation: fog 8s linear infinite;
       }
 
-      @keyframes fog {
-        100% {
-          transform: translateX(-300px);
-        }
-      }
-
       .red-car {
         left: 50px;
         position: absolute;
@@ -44,19 +38,21 @@
         animation-fill-mode: forwards;
       }
 
-      .red-car,.blue-car{
+      .red-car,
+      .blue-car {
         height: 150px;
         width: 315px;
         background-size: cover;
       }
 
-      .red-car::before,.red-car::after{
+      .red-car::before,
+      .red-car::after {
         display: inline-block;
         width: 45px;
         height: 45px;
         z-index: 3;
         content: "";
-        animation:wheelrotation 1s linear normal infinite;
+        animation: wheelrotation 1s linear normal infinite;
         position: absolute;
         bottom: 10px;
       }
@@ -71,18 +67,6 @@
         right: 35px;
       }
 
-      @keyframes redcar {
-        100% {
-          transform: translateX(1500px);
-        }
-      }
-
-      @keyframes wheelrotation {
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
       .blue-car {
         right: 90px;
         position: absolute;
@@ -92,13 +76,14 @@
         animation-fill-mode: forwards;
       }
 
-      .blue-car::before,.blue-car::after{
+      .blue-car::before,
+      .blue-car::after {
         display: inline-block;
         width: 48px;
         height: 48px;
         content: "";
         z-index: 2;
-        animation:wheelrotation 1s linear reverse infinite;
+        animation: wheelrotation 1s linear reverse infinite;
         position: absolute;
         bottom: -5px;
       }
@@ -113,20 +98,14 @@
         left: 233px;
       }
 
-      @keyframes bluecar {
-        100% {
-          transform: translateX(-1500px);
-        }
-      }
-
       .middle-car {
         position: absolute;
-        left: 50%;
         top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
         bottom: 190px;
         z-index: 3;
-        animation: middlecar 3s 2.4s linear normal forwards;
+        animation: middlecar 2s 2.4s linear normal;
         opacity: 0;
         width: 160px;
         height: 160px;
@@ -135,31 +114,56 @@
         background-size: cover;
       }
 
+      .introducing-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: -120px;
+        z-index: 3;
+        width: 310px;
+        height: 65px;
+        animation: moveup 2s 2.4s linear normal;
+        background-image: url("now-introducing-gloster.png");
+        opacity: 0;
+        animation-fill-mode: forwards;
+        background-size: cover;
+      }
+      
+
+      @keyframes fog {
+        100% {
+          transform: translateX(-300px);
+        }
+      }
+
+      @keyframes redcar {
+        100% {
+          transform: translateX(1500px);
+        }
+      }
+
+      @keyframes wheelrotation {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes bluecar {
+        100% {
+          transform: translateX(-1500px);
+        }
+      }
+
       @keyframes middlecar {
         0% {
           opacity: 1;
         }
 
         100% {
-          transform: translateY(80px) scale(1.5);
+          transform: translate(-50%,80px)  scale(1.5);
           opacity: 1;
         }
-      }
-
-      .introducing-title {
-        position: absolute;
-        left: 50%;
-        top:50%;
-        transform: translate(-50%,-50%);
-        margin-top: -120px;
-        z-index: 3;
-        width: 310px;
-        height: 65px;
-        animation: moveup 2s 2.4s linear normal forwards;
-        background-image: url("now-introducing-gloster.png");
-        opacity: 0;
-        animation-fill-mode: forwards;
-        background-size: cover;
       }
 
       @keyframes moveup {
@@ -167,7 +171,7 @@
           opacity: 1;
         }
         100% {
-          transform: translateY(-80px) scale(1.5);
+          transform: translate(-50%,-80px) scale(1.5);
           opacity: 1;
         }
       }
@@ -180,8 +184,10 @@
 
     <div class="blue-car"></div>
 
-    <div class="middle-car"></div>
+      <div class="middle-car"></div>
 
-    <div class="introducing-title"></div>
+      <div class="introducing-title"></div>
+
+  
   </body>
 </html>
