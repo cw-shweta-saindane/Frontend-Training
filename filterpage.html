@@ -142,11 +142,11 @@
         margin-top: 10px;
       }
 
-      .make-list-wrapper{
+      .make-list-wrapper {
         height: 110px;
       }
 
-      .body-list-wrapper{
+      .body-list-wrapper {
         height: 50px;
       }
 
@@ -174,7 +174,9 @@
 
       <div class="selected-filters">Selected Filters:</div>
 
-      <div class="js-selection-status selection-status">No filters selected!</div>
+      <div class="js-selection-status selection-status">
+        No filters selected!
+      </div>
       <div class="body-selection-status js-body-selection-status"></div>
     </div>
 
@@ -276,7 +278,9 @@
         </div>
       </div>
 
-      <button class="apply-filters__btn js-apply-filters__btn">Apply Filters</button>
+      <button class="apply-filters__btn js-apply-filters__btn">
+        Apply Filters
+      </button>
     </div>
 
     <script>
@@ -287,108 +291,93 @@
       let openFirstPageWrapper = document.querySelector(
         ".js-open-filter-page-wrapper"
       );
-      openFilterButton.addEventListener("click", function () {
-        if(openFilterButton == null){
-          return 0;
-        }
+      openFilterButton &&
+        openFilterButton.addEventListener("click", function () {
           selection.classList.remove("hide");
-        
-      });
+        });
 
       //onclick of the cross symbol the first page opens and the filter selection page close
       let crossButton = document.querySelector(".js-cross-symbol-top");
-      crossButton.addEventListener("click", function () {
-        if( crossButton == null){
-          return 0;
-        }
-        selection.classList.add("hide");
-      });
+      crossButton &&
+        crossButton.addEventListener("click", function () {
+          selection.classList.add("hide");
+        });
 
       //onclick of the arrow the Make list open and collapse
       let upwardArrow = document.querySelector(".js-arrow");
       let makeListWrapper = document.querySelector(".js-make-list-wrapper");
       let makeCarList = document.querySelector(".js-make-and-arrow-wrapper");
-      makeCarList.addEventListener("click", function (e) {
-        if( makeCarList == null){
-          return 0;
-        }
-        makeListWrapper.classList.toggle("collapse");
-        upwardArrow.classList.toggle("downward");
-      });
+      makeCarList &&
+        makeCarList.addEventListener("click", function (e) {
+          makeListWrapper.classList.toggle("collapse");
+          upwardArrow.classList.toggle("downward");
+        });
 
       //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array
       //if we unselected the checkbox using splice the selected index is removed
-      makeListWrapper.addEventListener("change", function (event) {
-        if( makeListWrapper == null){
-          return 0;
-        }
-        if (event.target.matches('input[type="checkbox"]')) {
-          const checkbox = event.target;
-          if (checkbox.checked) {
-            selectedMakeFilter.push(checkbox.value);
-          } else {
-            const index = selectedMakeFilter.indexOf(checkbox.value);
-            if (index > -1) {
-              selectedMakeFilter.splice(index, 1);
+      makeListWrapper &&
+        makeListWrapper.addEventListener("change", function (event) {
+          if (event.target.matches('input[type="checkbox"]')) {
+            const checkbox = event.target;
+            if (checkbox.checked) {
+              selectedMakeFilter.push(checkbox.value);
+            } else {
+              const index = selectedMakeFilter.indexOf(checkbox.value);
+              if (index > -1) {
+                selectedMakeFilter.splice(index, 1);
+              }
             }
           }
-        }
-      });
+        });
 
       //onclick of the arrow the Body list open and collapse
       let bodyTypeArrow = document.querySelector(".js-body-arrow");
       let bodyWrapper = document.querySelector(".js-body-and-arrow-wrapper");
       let bodyListWrapper = document.querySelector(".js-body-list-wrapper");
-      bodyWrapper.addEventListener("click", function () {
-        if( bodyWrapper == null){
-          return 0;
-        }
-        bodyListWrapper.classList.toggle("collapse");
-        bodyTypeArrow.classList.toggle("downward");
-      });
+      bodyWrapper &&
+        bodyWrapper.addEventListener("click", function () {
+          bodyListWrapper.classList.toggle("collapse");
+          bodyTypeArrow.classList.toggle("downward");
+        });
 
       //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array
       //if we unselected using splice the selected index is removed
-      bodyListWrapper.addEventListener("change", function (event) {
-        if( bodyListWrapper == null){
-          return 0;
-        }
-        if (event.target.matches('input[type="checkbox"]')) {
-          const checkbox = event.target;
-          if (checkbox.checked) {
-            selectedBodyFilter.push(checkbox.value);
-          } else {
-            const index = selectedBodyFilter.indexOf(checkbox.value);
-            if (index > -1) {
-              selectedBodyFilter.splice(index, 1);
+      bodyListWrapper &&
+        bodyListWrapper.addEventListener("change", function (event) {
+          if (event.target.matches('input[type="checkbox"]')) {
+            const checkbox = event.target;
+            if (checkbox.checked) {
+              selectedBodyFilter.push(checkbox.value);
+            } else {
+              const index = selectedBodyFilter.indexOf(checkbox.value);
+              if (index > -1) {
+                selectedBodyFilter.splice(index, 1);
+              }
             }
           }
-        }
-      });
+        });
 
       //onclick of the apply filter the selection page hides and first page open and in BodyTypeResult and makeresult on first page we can see the selected status
       let bodyTypeResult = document.querySelector(".js-body-selection-status");
       let applyFilter = document.querySelector(".js-apply-filters__btn");
       let result = document.querySelector(".js-selection-status");
-      applyFilter.addEventListener("click", function () {
-        if( applyFilter == null){
-          return 0;
-        }
-        selection.classList.add("hide");
-        bodyTypeResult.innerHTML =
-          selectedBodyFilter.length > 0
-            ? `Body Type: <span class="selected-result">${selectedBodyFilter.join(
-                ", "
-              )} </span>`
-            : "Body: No selected filters";
+      applyFilter &&
+        applyFilter.addEventListener("click", function () {
+          selection.classList.add("hide");
+          bodyTypeResult.innerHTML =
+            selectedBodyFilter.length > 0
+              ? `Body Type: <span class="selected-result">${selectedBodyFilter.join(
+                  ", "
+                )} </span>`
+              : "Body: No selected filters";
 
-        result.innerHTML =
-          selectedMakeFilter.length > 0
-            ? `Make: <span class="selected-result">${selectedMakeFilter.join(
-                ", "
-              )} </span>`
-            : "Make: No selected filters";
-      });
+          result.innerHTML =
+            selectedMakeFilter.length > 0
+              ? `Make: <span class="selected-result">${selectedMakeFilter.join(
+                  ", "
+                )} </span>`
+              : "Make: No selected filters";
+        });
     </script>
   </body>
 </html>
