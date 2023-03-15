@@ -12,22 +12,22 @@
         padding: 0;
       }
 
-      .open-filter-page-wrapper {
+      .js-open-filter-page-wrapper {
         padding: 10px;
       }
 
-      .open-filter__btn {
+      .js-open-filter__btn {
         width: 120px;
       }
 
-      .open-filter__btn,
-      .apply-filters__btn {
+      .js-open-filter__btn,
+      .js-apply-filters__btn {
         background-color: #ea2525;
         border-radius: 5px;
         border: none;
         font-size: 15px;
         font-weight: 600;
-        color: #ffffff;
+        color: #fff;
         padding: 12px;
         margin-top: 10px;
       }
@@ -39,19 +39,19 @@
         color: #242323;
       }
 
-      .selection-status,
-      .body-selection-status {
+      .js-selection-status,
+      .js-body-selection-status {
         margin-top: 10px;
         font-size: 20px;
         font-weight: 300;
         color: #5d5a5a;
       }
 
-      .cross-symbol-top {
+      .js-cross-symbol-top {
         height: 35px;
         width: 35px;
         border-radius: 50%;
-        background-color: #ffffff;
+        background-color: #fff;
         display: flex;
         justify-content: center;
         border: none;
@@ -67,7 +67,7 @@
 
       .filter-image-headline-wrappper {
         display: flex;
-        padding-left: 10px;
+        padding: 10px;
       }
 
       .filter-headline {
@@ -86,7 +86,7 @@
         padding: 15px;
       }
 
-      .selection-wrapper {
+      .js-selection-wrapper {
         position: fixed;
         top: 0;
         height: 100%;
@@ -107,7 +107,7 @@
         font-family: Arial, Helvetica, sans-serif;
       }
 
-      .apply-filters__btn {
+      .js-apply-filters__btn {
         width: calc(100% - 20px);
         position: absolute;
         right: 10px;
@@ -115,8 +115,8 @@
         bottom: 5px;
       }
 
-      .make-and-arrow-wrapper,
-      .body-and-arrow-wrapper {
+      .js-make-and-arrow-wrapper,
+      .js-body-and-arrow-wrapper {
         display: flex;
         justify-content: space-between;
       }
@@ -126,26 +126,31 @@
         width: 50%;
       }
 
-      .arrow,
-      .body-arrow {
+      .js-arrow,
+      .js-body-arrow {
         height: 20px;
       }
 
-      .hide {
+      .js-hide {
         display: none;
       }
 
-      .make-list-wrapper,
-      .body-list-wrapper {
+      .js-make-list-wrapper,
+      .js-body-list-wrapper {
         display: flex;
         flex-wrap: wrap;
         margin-top: 10px;
-        /* -webkit-transition: all 0.5s ease;
-        -o-transition: all 0.5s ease;
-        transition: all 0.5s ease; */
       }
 
-      .collapse {
+      .js-make-list-wrapper{
+        height: 110px;
+      }
+
+      .js-body-list-wrapper{
+        height: 50px;
+      }
+
+      .js-collapse {
         height: 0;
         overflow: hidden;
         -webkit-transition: all 1s ease;
@@ -153,7 +158,7 @@
         transition: all 1s ease;
       }
 
-      .downward {
+      .js-downward {
         transform: rotate(180deg);
       }
 
@@ -163,19 +168,19 @@
     </style>
   </head>
   <body>
-    <div class="open-filter-page-wrapper">
+    <div class="js-open-filter-page-wrapper">
       <h2>Filters</h2>
-      <button class="open-filter__btn">Open Filter</button>
+      <button class="js-open-filter__btn">Open Filter</button>
 
       <div class="selected-filters">Selected Filters:</div>
 
-      <div class="selection-status">No filters selected!</div>
-      <div class="body-selection-status"></div>
+      <div class="js-selection-status">No filters selected!</div>
+      <div class="js-body-selection-status"></div>
     </div>
 
-    <div class="selection-wrapper hide">
+    <div class="js-selection-wrapper js-hide">
       <div class="filter-image-headline-wrappper">
-        <button class="cross-symbol-top">
+        <button class="js-cross-symbol-top">
           <img
             src="icons8-close-32.png"
             alt="cross symbol"
@@ -186,16 +191,16 @@
       </div>
 
       <div class="make-car-list">
-        <div class="make-and-arrow-wrapper">
+        <div class="js-make-and-arrow-wrapper">
           <h2 class="make-heading">Make</h2>
           <img
             src="icons8-more-than-48.png"
             alt="Upwards arrow"
-            class="arrow"
+            class="js-arrow"
           />
         </div>
 
-        <div class="make-list-wrapper collapse">
+        <div class="js-make-list-wrapper js-collapse">
           <ul class="make-list-wrapper--content">
             <li class="checkbox-wrapper">
               <input type="checkbox" id="MarutiSuzuki" value="Maruti Suzuki" />
@@ -237,16 +242,16 @@
       </div>
 
       <div class="body-wrapper">
-        <div class="body-and-arrow-wrapper">
+        <div class="js-body-and-arrow-wrapper">
           <h2 class="body-heading">Body Type</h2>
           <img
             src="icons8-more-than-48.png"
             alt="Upwards arrow"
-            class="body-arrow"
+            class="js-body-arrow"
           />
         </div>
 
-        <div class="body-list-wrapper collapse">
+        <div class="js-body-list-wrapper js-collapse">
           <ul class="body-list-wrapper--content">
             <li class="checkbox-wrapper">
               <input type="checkbox" id="SUV" value="SUV" />
@@ -271,34 +276,34 @@
         </div>
       </div>
 
-      <button class="apply-filters__btn">Apply Filters</button>
+      <button class="js-apply-filters__btn">Apply Filters</button>
     </div>
 
     <script>
       let selectedMakeFilter = [];
       let selectedBodyFilter = [];
-      let openFilterButton = document.querySelector(".open-filter__btn");
-      let selection = document.querySelector(".selection-wrapper");
+      let openFilterButton = document.querySelector(".js-open-filter__btn");
+      let selection = document.querySelector(".js-selection-wrapper");
       let openFirstPageWrapper = document.querySelector(
-        ".open-filter-page-wrapper"
+        ".js-open-filter-page-wrapper"
       );
       openFilterButton.addEventListener("click", function () {
-        selection.classList.remove("hide");
+        selection.classList.remove("js-hide");
       });
 
       //onclick of the cross symbol the first page opens and the filter selection page close
-      let crossButton = document.querySelector(".cross-symbol-top");
+      let crossButton = document.querySelector(".js-cross-symbol-top");
       crossButton.addEventListener("click", function () {
-        selection.classList.add("hide");
+        selection.classList.add("js-hide");
       });
 
       //onclick of the arrow the Make list open and collapse
-      let upwardArrow = document.querySelector(".arrow");
-      let makeListWrapper = document.querySelector(".make-list-wrapper");
-      let makeCarList = document.querySelector(".make-and-arrow-wrapper");
+      let upwardArrow = document.querySelector(".js-arrow");
+      let makeListWrapper = document.querySelector(".js-make-list-wrapper");
+      let makeCarList = document.querySelector(".js-make-and-arrow-wrapper");
       makeCarList.addEventListener("click", function (e) {
-        makeListWrapper.classList.toggle("collapse");
-        upwardArrow.classList.toggle("downward");
+        makeListWrapper.classList.toggle("js-collapse");
+        upwardArrow.classList.toggle("js-downward");
       });
 
       //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array
@@ -318,12 +323,12 @@
       });
 
       //onclick of the arrow the Body list open and collapse
-      let bodyTypeArrow = document.querySelector(".body-arrow");
-      let bodyWrapper = document.querySelector(".body-and-arrow-wrapper");
-      let bodyListWrapper = document.querySelector(".body-list-wrapper");
+      let bodyTypeArrow = document.querySelector(".js-body-arrow");
+      let bodyWrapper = document.querySelector(".js-body-and-arrow-wrapper");
+      let bodyListWrapper = document.querySelector(".js-body-list-wrapper");
       bodyWrapper.addEventListener("click", function () {
-        bodyListWrapper.classList.toggle("collapse");
-        bodyTypeArrow.classList.toggle("downward");
+        bodyListWrapper.classList.toggle("js-collapse");
+        bodyTypeArrow.classList.toggle("js-downward");
       });
 
       //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array
@@ -343,23 +348,23 @@
       });
 
       //onclick of the apply filter the selection page hides and first page open and in BodyTypeResult and makeresult on first page we can see the selected status
-      let bodyTypeResult = document.querySelector(".body-selection-status");
-      let applyFilter = document.querySelector(".apply-filters__btn");
-      let result = document.querySelector(".selection-status");
+      let bodyTypeResult = document.querySelector(".js-body-selection-status");
+      let applyFilter = document.querySelector(".js-apply-filters__btn");
+      let result = document.querySelector(".js-selection-status");
       applyFilter.addEventListener("click", function () {
-        selection.classList.add("hide");
+        selection.classList.add("js-hide");
         bodyTypeResult.innerHTML =
           selectedBodyFilter.length > 0
-            ? `<div> Body Type: <span class="selected-result">${selectedBodyFilter.join(
+            ? `Body Type: <span class="selected-result">${selectedBodyFilter.join(
                 ", "
-              )} </span></div>`
+              )} </span>`
             : "Body: No selected filters";
 
         result.innerHTML =
           selectedMakeFilter.length > 0
-            ? `<div>Make: <span class="selected-result">${selectedMakeFilter.join(
+            ? `Make: <span class="selected-result">${selectedMakeFilter.join(
                 ", "
-              )} </span></div>`
+              )} </span>`
             : "Make: No selected filters";
       });
     </script>
