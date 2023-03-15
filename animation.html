@@ -118,20 +118,21 @@
           transform: translateX(-1500px);
         }
       }
+
       .middle-car {
+        position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        position: absolute;
         bottom: 190px;
         z-index: 3;
-      }
-
-      .middle-car--image {
-        width: 150px;
-        height: 150px;
-        animation: middlecar 3s 2.4s forwards;
+        animation: middlecar 3s 2.4s linear normal forwards;
         opacity: 0;
+        width: 160px;
+        height: 160px;
+        background-image: url("gloster-front-view.png");
+        animation-fill-mode: forwards;
+        background-size: cover;
       }
 
       @keyframes middlecar {
@@ -140,26 +141,25 @@
         }
 
         100% {
-          transform: translateY(100px) scale(1.5);
+          transform: translateY(80px) scale(1.5);
           opacity: 1;
         }
       }
 
       .introducing-title {
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
         position: absolute;
-        top: 200px;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        margin-top: -120px;
         z-index: 3;
-      }
-
-      .introducing-title--image {
-        width: 285px;
+        width: 310px;
         height: 65px;
-        animation: moveup 2s 2.4s linear normal;
+        animation: moveup 2s 2.4s linear normal forwards;
+        background-image: url("now-introducing-gloster.png");
         opacity: 0;
         animation-fill-mode: forwards;
+        background-size: cover;
       }
 
       @keyframes moveup {
@@ -180,20 +180,8 @@
 
     <div class="blue-car"></div>
 
-    <div class="middle-car">
-      <img
-        src="gloster-front-view.png"
-        alt="Gloster front view"
-        class="middle-car--image"
-      />
-    </div>
+    <div class="middle-car"></div>
 
-    <div class="introducing-title">
-      <img
-        src="now-introducing-gloster.png"
-        alt="Now introducing goster"
-        class="introducing-title--image"
-      />
-    </div>
+    <div class="introducing-title"></div>
   </body>
 </html>
