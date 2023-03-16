@@ -293,14 +293,14 @@
       );
       openFilterButton &&
         openFilterButton.addEventListener("click", function () {
-          selection.classList.remove("hide");
+          selection && selection.classList.remove("hide");
         });
 
       //onclick of the cross symbol the first page opens and the filter selection page close
       let crossButton = document.querySelector(".js-cross-symbol-top");
       crossButton &&
         crossButton.addEventListener("click", function () {
-          selection.classList.add("hide");
+          selection && selection.classList.add("hide");
         });
 
       //onclick of the arrow the Make list open and collapse
@@ -309,8 +309,8 @@
       let makeCarList = document.querySelector(".js-make-and-arrow-wrapper");
       makeCarList &&
         makeCarList.addEventListener("click", function (e) {
-          makeListWrapper.classList.toggle("collapse");
-          upwardArrow.classList.toggle("downward");
+          makeListWrapper && makeListWrapper.classList.toggle("collapse");
+          upwardArrow && upwardArrow.classList.toggle("downward");
         });
 
       //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array
@@ -336,8 +336,8 @@
       let bodyListWrapper = document.querySelector(".js-body-list-wrapper");
       bodyWrapper &&
         bodyWrapper.addEventListener("click", function () {
-          bodyListWrapper.classList.toggle("collapse");
-          bodyTypeArrow.classList.toggle("downward");
+          bodyListWrapper && bodyListWrapper.classList.toggle("collapse");
+          bodyTypeArrow && bodyTypeArrow.classList.toggle("downward");
         });
 
       //here we are checking the selected type is checkbox and we have checked the checkbox then we push it into array
@@ -363,7 +363,7 @@
       let result = document.querySelector(".js-selection-status");
       applyFilter &&
         applyFilter.addEventListener("click", function () {
-          selection.classList.add("hide");
+          selection && selection.classList.add("hide");
           bodyTypeResult.innerHTML =
             selectedBodyFilter.length > 0
               ? `Body Type: <span class="selected-result">${selectedBodyFilter.join(
