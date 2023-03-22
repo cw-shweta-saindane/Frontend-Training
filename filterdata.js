@@ -4,7 +4,7 @@ const data = [
   { body: "cruiser", power: "300cc", seater: "3 seater"},
   { body: "sports", power: "150cc", seater: "5 seater"},
   { body: "retro", power: "300cc", seater: "3 seater"},
-  // { body: "retro", power: "300cc", seater: "5 seater"},
+  { body: "retro", power: "300cc", seater: "5 seater"},
 ];
 let inputData = {};
 
@@ -15,6 +15,7 @@ function filterData(filterObj) {
       delete inputData[key];
     }
   }
+
   let filteredData = data; 
   inputData = { ...inputData, ...filterObj };
   for (let key in inputData) {
@@ -23,8 +24,24 @@ function filterData(filterObj) {
   return Object.keys(inputData).length > 0 ? filteredData : [];
 }
 
-console.log(filterData({ power: "300cc" }));
+console.log(filterData({ power: "300cc" }));  
 console.log(filterData({ body: "retro" }));
-console.log(filterData({ power: "300cc" }));
+console.log(filterData({ power: "300cc" })); 
+console.log(filterData({ seater: "5 seater" }));
+console.log(filterData({ power: "300cc"}));
+console.log(filterData({ seater: "3 seater" }));
+
+// power: "300cc"---x
+
+// { body: 'cruiser', power: '300cc', seater: '3 seater' },
+// { body: 'retro', power: '300cc', seater: '3 seater' }
+
+// body: re
+
+// { body: 'retro', power: '300cc', seater: '3 seater' }
+
+
+
+// power: "300cc"  ---x
 
 
