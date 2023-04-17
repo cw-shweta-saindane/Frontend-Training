@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background-color: #cbcbcb;
+      }
+      .container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgb(255, 255, 255);
+        height: 580px;
+        width: 568px;
+        box-shadow: 0 2px 2px 0 rgb(53 51 51 / 20%),
+          0 6px 20px 0 rgb(65 61 61 / 19%);
+      }
+
+      .page-info-heading {
+        height: 82px;
+        width: 100%;
+        background-color: rgb(255, 255, 255);
+        display: flex;
+      }
+
+      .heading-selection {
+        font-size: 20px;
+        font-weight: 600;
+        padding: 20px 40px;
+        padding-left: 40px;
+        color: #484848;
+        position: absolute;
+        z-index: 1;
+      }
+
+      .cross-symbol {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        background-color: rgb(255, 255, 255);
+        margin-top: 14px;
+        box-shadow: 0 2px 2px 0 rgba(138, 138, 138, 0.2),
+          0 6px 20px 0 rgba(170, 169, 169, 0.19);
+        z-index: 1;
+      }
+
+      .heading-selection-container {
+        width: 90%;
+      }
+
+      .cross-symbol-img {
+        height: 20px;
+        width: 20px;
+        margin-top: 7px;
+        margin-left: 7px;
+        z-index: 1;
+      }
+
+      .fuel-type-button {
+        display: flex;
+        /* height: 56px; */
+        width: 100%;
+        padding-left: 35px;
+        /* overflow-x: scroll; */
+      }
+
+      .fuel {
+        background-color: #FFF;
+        height: 44px;
+        border-radius: 3px;
+        padding: 15px;
+        border: 0.5px solid #b8b0b0;
+        margin: 15px 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #3d3d3b;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .selection-result {
+        overflow-y: scroll;
+        /* width: 100%; */
+        /* height: 444px; */
+        padding: 0px 40px;
+      }
+
+      .city-image {
+        height: 74px;
+        width: 100%;
+        position: absolute;
+        top: 13px;
+      }
+
+      .selected {
+        color: #149014;
+        border-color:#149014;
+      }
+
+      .result {
+        padding: 15px;
+        border-bottom: 1px solid #eae3e3;
+      }
+
+      .display-result{
+        height: 52px;
+        padding: 10px 0px;
+        border-bottom: 1px solid #D3D3D3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-info-heading">
+        <div class="heading-selection-container">
+          <p class="heading-selection">Select Your Version</p>
+          <img src="city.jpg" alt="city-image" class="city-image" />
+        </div>
+        <div class="cross-symbol">
+          <img
+            src="icons8-close-32.png"
+            alt="Cross Symbol"
+            class="cross-symbol-img"
+          />
+        </div>
+      </div>
+        <div id="container"></div>
+      <div class="selection-result"></div>
+    </div>
+
+    <script>
+      const data = [
+        {
+          itemId: 1,
+          customId: 11,
+          fuelType: "diesel",
+          transmissionType: "manual",
+        },
+        {
+          itemId: 2,
+          customId: 12,
+          fuelType: "petrol",
+          transmissionType: "manual",
+        },
+        {
+          itemId: 5,
+          customId: 15,
+          fuelType: "diesel",
+          transmissionType: "automatic",
+        },
+        {
+          itemId: 6,
+          customId: 16,
+          fuelType: "petrol",
+          transmissionType: "automatic",
+        },
+        {
+          itemId: 8,
+          customId: 18,
+          fuelType: "petrol",
+          transmissionType: "manual",
+        },
+
+        {
+          itemId: 9,
+          customId: 19,
+          fuelType: "petrol",
+          transmissionType: "automatic",
+        },
+      ];
+
+      //store all selected fuel type and transmission type
+      let filterTypeSelectedValues = {
+        fuelType: [],
+        transmissionType: [],
+      };
+
+      const buttonConfigs = [
+        { text: "Diesel", class: "fuel", type: "fuelType", value: "diesel" },
+        { text: "Petrol", class: "fuel", type: "fuelType", value: "petrol" },
+        { text: "Manual", class: "fuel", type: "transmissionType",value: "manual" },
+        { text: "Automatic",class: "fuel", type: "transmissionType",value: "automatic"}
+      ];
+
+      const fuelTypeButtons = document.createElement("div");
+      fuelTypeButtons.className = "fuel-type-button";
+
+      buttonConfigs.forEach((config) => {
+        const button = document.createElement("div");
+        button.textContent = config.text;
+        button.className = config.class;
+        button.setAttribute("type", config.type);
+        button.setAttribute("value", config.value);
+        fuelTypeButtons.appendChild(button);
+      });
+
+      const container = document.getElementById("container"); 
+      container.appendChild(fuelTypeButtons);
+
+      fuelTypeButtons.addEventListener("click", function (e) {
+        e.target.classList.toggle("selected");
+        let type = e.target.getAttribute("type");
+        let value = e.target.getAttribute("value");
+        if (filterTypeSelectedValues[type].includes(value)) {
+          filterTypeSelectedValues[type].splice(filterTypeSelectedValues[type].indexOf(value), 1);
+        } else {
+          filterTypeSelectedValues[type].push(value);
+        }
+        filterData(filterTypeSelectedValues);
+       });
+
+
+      //filter out the data according to the selection
+      function filterData(filterObj) {
+        const { fuelType, transmissionType } = filterObj;
+        let filteredData = data;
+
+        if (fuelType && fuelType.length > 0) {
+          filteredData = filteredData.filter((item) =>
+            fuelType.includes(item.value)
+          );
+        }
+
+        if (transmissionType && transmissionType.length > 0) {
+          filteredData = filteredData.filter((item) =>
+            transmissionType.includes(item.transmissionType)
+          );
+        }
+
+        // let filterData = data;
+        
+        renderData(filteredData);
+      }
+
+      let myresult = document.querySelector(".selection-result");
+      function renderData(filteredData) {
+        dataToRender = "";
+        for (let i = 0; i < filteredData.length; i++) {
+          let determine = filteredData[i];
+          dataToRender += `<div class="display-result"> ItemID: ${determine.itemId}, CustomID: ${determine.customId} ,FuleType: ${determine.value},
+          Transmission Type: ${determine.transmissionType} </div>`;
+        }
+        myresult.innerHTML = dataToRender
+      }
+      
+      filterData({});
+    </script>
+  </body>
+</html>
